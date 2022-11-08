@@ -74,7 +74,7 @@ const minify = () =>
 	.pipe(uglify())
 	.pipe(dest(OUT_DIRECTORY))
 
-const dev = series(parallel(compileTypescript, compileSass, copyHtml), browserifyTask)
+const dev = parallel(series(compileTypescript, browserifyTask), compileSass, copyHtml)
 
 // Exports
 exports.clean = clean
