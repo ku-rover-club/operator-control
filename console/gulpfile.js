@@ -1,7 +1,7 @@
 // Constants
-const SOURCE_DIRECTORY	= 'src',
-	  MID_DIRECTORY		= 'build',
-	  OUT_DIRECTORY		= 'out'
+const SOURCE_DIRECTORY	= 'src'
+const MID_DIRECTORY		= 'build'
+const OUT_DIRECTORY		= 'out'
 
 // Imports
 const browserify = require('browserify')
@@ -13,9 +13,10 @@ const sass = require('gulp-sass')(require('sass'))
 const shell = require('gulp-shell')
 const tap = require('gulp-tap')
 const typescript = require('gulp-typescript')
+const uglify = require('gulp-uglify')
 
 // Browserify
-const browserifyTask = cb => {
+const browserifyTask = () =>
 	src(`${MID_DIRECTORY}/main.js`)
 	.pipe(tap((file) => {
 		file.contents = browserify(file.path, {
@@ -31,20 +32,16 @@ const browserifyTask = cb => {
 	.pipe(replace('nextTick(function', 'queueMicrotask(function'))
 	.pipe(dest(OUT_DIRECTORY))
 
-	return cb()
-}
-
 // Clean directories
 const clean = async cb => {
 	const {deleteAsync} = await del
-	deleteAsync(`${MID_DIRECTORY}/**`)
-	deleteAsync(`${OUT_DIRECTORY}/**`)
-
-	return cb()
+		deleteAsync(MID_DIRECTORY)
+		deleteAsync(OUT_DIRECTORY)
+		return cb()
 }
 
 // Compile TypeScript
-const compileTypescript = cb =>
+const compileTypescript = () =>
 	src(`${SOURCE_DIRECTORY}/ts/**/*.ts*`)
     .pipe(typescript({
         module: 'commonjs',
@@ -56,21 +53,15 @@ const compileTypescript = cb =>
     .pipe(dest(MID_DIRECTORY))
 
 // Compile SCSS
-const compileSass = cb => {
+const compileSass = () =>
 	src(`${SOURCE_DIRECTORY}/scss/style.scss`)
     .pipe(sass().on('error', sass.logError))
     .pipe(dest(OUT_DIRECTORY))
 
-	return cb()
-}
-
 // Copy HTML
-const compileHtml = cb => {
+const copyHtml = () =>
 	src(`${SOURCE_DIRECTORY}/html/*.html`)
 	.pipe(dest(OUT_DIRECTORY))
-
-	return cb()
-}
 
 // Generate TypeScript documentation
 const docs = cb => {
@@ -78,7 +69,15 @@ const docs = cb => {
 	return cb()
 }
 
+const minify = () =>
+	src(`${OUT_DIRECTORY}/main.js`)
+	.pipe(uglify())
+	.pipe(dest(OUT_DIRECTORY))
+
+const dev = series(parallel(compileTypescript, compileSass, copyHtml), browserifyTask)
+
 // Exports
 exports.clean = clean
-exports.default = series(parallel(compileTypescript, compileSass, compileHtml), browserifyTask)
+exports.default = series(dev, minify)
+exports.dev = dev
 exports.docs = docs
