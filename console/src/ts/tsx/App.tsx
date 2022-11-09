@@ -1,5 +1,5 @@
 import { createTheme } from '@mui/material/styles'
-import { Container, ThemeProvider } from '@mui/material'
+import { ThemeProvider } from '@mui/material'
 import * as React from 'react'
 
 import { Placeholder } from './Placeholder'
