@@ -1,6 +1,47 @@
 @import "./colors";
+@import "./layout";
 
 html, body {
-	background-color: $background-dark;
-	min-height: 100%;
+	overflow: hidden;
+}
+
+.centered {
+	left: 50%;
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.widget {
+	box-sizing: border-box;
+	display: inline-grid;
+	font-size: 2em;
+	height: 100%;
+	justify-content: center;
+	padding: 0.5em;
+	position: relative;
+	text-align: center;
+	width: 100%;
+}
+
+#root {
+	align-content: center;
+	background-color: $background;
+	bottom: 0px;
+	box-sizing: border-box;
+	display: grid;
+	gap: 1em;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	grid-template-areas:
+	". . . . ."
+	". . . . ."
+	". . . . .";
+	height: 100vh;
+	left: 0px;
+	padding: 0.5em;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	width: 100%;
 }

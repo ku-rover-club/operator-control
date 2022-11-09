@@ -1,7 +1,7 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom/client'
 
-import {App} from './tsx/App'
+import { App } from './tsx/App'
 
 const rootElement = document.getElementById('root')
 

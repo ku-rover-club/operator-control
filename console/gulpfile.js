@@ -6,7 +6,7 @@ const OUT_DIRECTORY		= 'out'
 // Imports
 const browserify = require('browserify')
 const del = import('del')
-const {src, dest, series, parallel} = require('gulp')
+const { src, dest, series, parallel } = require('gulp')
 const extReplace = require('gulp-ext-replace')
 const replace = require('gulp-replace')
 const sass = require('gulp-sass')(require('sass'))

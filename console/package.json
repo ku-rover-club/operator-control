@@ -22,6 +22,9 @@
     "@fontsource/roboto": "^4.5.8",
     "@mui/icons-material": "^5.10.9",
     "@mui/material": "^5.10.12",
+    "@types/prop-types": "^15.7.5",
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.8",
     "browserify": "^17.0.0",
     "del": "^7.0.0",
     "gulp": "^4.0.2",
@@ -36,9 +39,5 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sass": "^1.56.0"
-  },
-  "devDependencies": {
-    "@types/react": "^18.0.25",
-    "@types/react-dom": "^18.0.8"
   }
 }
