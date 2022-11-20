@@ -1,5 +1,4 @@
 @import "./colors";
-@import "./layout";
 
 html, body {
 	overflow: hidden;
@@ -34,9 +33,9 @@ html, body {
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	grid-template-rows: 1fr 1fr 1fr;
 	grid-template-areas:
-	". . . . ."
-	". . . . ."
-	". . . . .";
+	"a b b b c"
+	"d b b b e"
+	"d f g h e";
 	height: 100vh;
 	left: 0px;
 	padding: 0.5em;

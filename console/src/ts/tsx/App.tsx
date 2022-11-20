@@ -33,14 +33,14 @@ export class App extends React.Component<AppProps> {
 	render() {
 		return (
 			<ThemeProvider theme={this.theme}>
-				<div id="item1"><Placeholder></Placeholder></div>
-				<div id="item2"><Placeholder></Placeholder></div>
-				<div id="item3"><Placeholder></Placeholder></div>
-				<div id="item4"><Placeholder></Placeholder></div>
-				<div id="item5"><Placeholder></Placeholder></div>
-				<div id="item6"><Placeholder></Placeholder></div>
-				<div id="item7"><Placeholder></Placeholder></div>
-				<div id="item8"><Placeholder></Placeholder></div>
+				<div style={{gridArea: "a"}}><Placeholder></Placeholder></div>
+				<div style={{gridArea: "b"}}><Placeholder></Placeholder></div>
+				<div style={{gridArea: "c"}}><Placeholder></Placeholder></div>
+				<div style={{gridArea: "d"}}><Placeholder></Placeholder></div>
+				<div style={{gridArea: "e"}}><Placeholder></Placeholder></div>
+				<div style={{gridArea: "f"}}><Placeholder></Placeholder></div>
+				<div style={{gridArea: "g"}}><Placeholder></Placeholder></div>
+				<div style={{gridArea: "h"}}><Placeholder></Placeholder></div>
 			</ThemeProvider>
 		)
 	}
