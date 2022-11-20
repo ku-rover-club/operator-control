@@ -1,4 +1,4 @@
-import AddCircle from '@mui/icons-material/AddCircle';
+import AddCircle from '@mui/icons-material/AddCircle'
 import Card from '@mui/material/Card'
 import * as React from 'react'
 
