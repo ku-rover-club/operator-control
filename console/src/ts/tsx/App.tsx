@@ -4,7 +4,12 @@ import * as React from 'react'
 
 import { Placeholder } from './Placeholder'
 
-export class App extends React.Component {
+export interface AppProps {
+	ros: any,
+	topics: any,
+}
+
+export class App extends React.Component<AppProps> {
 	theme = createTheme({
 		palette: {
 			primary: {
