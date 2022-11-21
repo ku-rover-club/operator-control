@@ -1,7 +1,7 @@
-import Button from '@mui/material/Button'
 import Card from '@mui/material/Card'
 import * as React from 'react'
 
+import { Button } from './Button'
 import { Slider } from './Slider'
 
 export interface ControlsExampleProps {
@@ -13,16 +13,32 @@ export class ControlsExample extends React.Component<ControlsExampleProps> {
 		return (
 			<Card className="controls widget">
 				<div style={{gridArea: "a"}}>
-					<Button variant="contained">Contained button</Button>
+					<Button
+						name="Butt"
+						topic={this.props.topics['/test']}
+						message="butt pressed"
+					/>
 				</div>
 				<div style={{gridArea: "b"}}>
-					<Button variant="contained" disabled>Contained button</Button>
+					<Button
+						name="Button"
+						topic={this.props.topics['/test']}
+						message="button pressed"
+					/>
 				</div>
 				<div style={{gridArea: "c"}}>
-					<Button variant="outlined">Outlined button</Button>
+					<Button
+						name="Button"
+						topic={this.props.topics['/test']}
+						message="button pressed"
+					/>
 				</div>
 				<div style={{gridArea: "d"}}>
-					<Button variant="outlined" disabled>Outlined button</Button>
+					<Button
+						name="Button"
+						topic={this.props.topics['/test']}
+						message="button pressed"
+					/>
 				</div>
 				<div style={{gridArea: "e"}}>
 					<Slider
@@ -45,28 +61,60 @@ export class ControlsExample extends React.Component<ControlsExampleProps> {
 					/>
 				</div>
 				<div style={{gridArea: "g"}}>
-					<Button variant="outlined">Outlined</Button>
+					<Button
+						name="Button"
+						topic={this.props.topics['/test']}
+						message="button pressed"
+					/>
 				</div>
 				<div style={{gridArea: "h"}}>
-					<Button variant="outlined">Outlined</Button>
+					<Button
+						name="Button"
+						topic={this.props.topics['/test']}
+						message="button pressed"
+					/>
 				</div>
 				<div style={{gridArea: "i"}}>
-					<Button variant="outlined">Outlined</Button>
+					<Button
+						name="Button"
+						topic={this.props.topics['/test']}
+						message="button pressed"
+					/>
 				</div>
 				<div style={{gridArea: "j"}}>
-					<Button variant="outlined">Outlined</Button>
+					<Button
+						name="Button"
+						topic={this.props.topics['/test']}
+						message="button pressed"
+					/>
 				</div>
 				<div style={{gridArea: "k"}}>
-					<Button variant="outlined">Outlined</Button>
+					<Button
+						name="Button"
+						topic={this.props.topics['/test']}
+						message="button pressed"
+					/>
 				</div>
 				<div style={{gridArea: "l"}}>
-					<Button variant="outlined">Outlined</Button>
+					<Button
+						name="Button"
+						topic={this.props.topics['/test']}
+						message="button pressed"
+					/>
 				</div>
 				<div style={{gridArea: "m"}}>
-					<Button variant="outlined">Outlined</Button>
+					<Button
+						name="Button"
+						topic={this.props.topics['/test']}
+						message="button pressed"
+					/>
 				</div>
 				<div style={{gridArea: "n"}}>
-					<Button variant="outlined">Outlined</Button>
+					<Button
+						name="Button"
+						topic={this.props.topics['/test']}
+						message="button pressed"
+					/>
 				</div>
 			</Card>
 		)
