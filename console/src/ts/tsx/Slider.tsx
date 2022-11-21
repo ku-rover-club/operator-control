@@ -20,7 +20,6 @@ export interface SliderProps {
  */
 export class Slider extends React.Component<SliderProps> {
 	changeTimeout
-	node: HTMLInputElement
 
 	/**
 	 * Change
