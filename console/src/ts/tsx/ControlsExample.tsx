@@ -25,10 +25,24 @@ export class ControlsExample extends React.Component<ControlsExampleProps> {
 					<Button variant="outlined" disabled>Outlined button</Button>
 				</div>
 				<div style={{gridArea: "e"}}>
-					<Slider name="Slider 1" min={0} max={100} step={10} defaultValue={0} />
+					<Slider
+						name="Slider 1"
+						min={0}
+						max={100}
+						step={10}
+						defaultValue={0}
+						topic={this.props.topics['/slider1']}
+					/>
 				</div>
 				<div style={{gridArea: "f"}}>
-					<Slider name="Slider 2" min={-420} max={420} step={40} defaultValue={69} />
+					<Slider
+						name="Slider 2"
+						min={-420}
+						max={420}
+						step={40}
+						defaultValue={69}
+						topic={this.props.topics['/slider2']}
+					/>
 				</div>
 				<div style={{gridArea: "g"}}>
 					<Button variant="outlined">Outlined</Button>

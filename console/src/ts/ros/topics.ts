@@ -7,6 +7,14 @@ const TOPICS_TO_SUBSCRIBE_TO = [
 		name: '/test',
 		type: 'std_msgs/String'
 	},
+	{
+		name: '/slider1',
+		type: 'std_msgs/Int32'
+	},
+	{
+		name: '/slider2',
+		type: 'std_msgs/Int32'
+	},
 ]
 
 let topics = {}
