@@ -33,7 +33,7 @@ export class Slider extends React.Component<SliderProps> {
 		const val: number = (typeof value !== 'object') ? value : value[0]
 
 		clearTimeout(this.changeTimeout)
-		this.changeTimeout = setTimeout(this.props.topic.publish, TIMEOUT_THRESHOLD, val)
+		this.changeTimeout = setTimeout(this.props.topic.publish.bind(this), TIMEOUT_THRESHOLD, val)
 	}
 
 	render() {
