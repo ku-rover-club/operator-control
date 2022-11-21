@@ -2,6 +2,7 @@ import createTheme from '@mui/material/styles/createTheme'
 import { ThemeProvider } from '@mui/material'
 import * as React from 'react'
 
+import { ControlsExample } from './ControlsExample'
 import { Placeholder } from './Placeholder'
 
 export interface AppProps {
@@ -33,7 +34,7 @@ export class App extends React.Component<AppProps> {
 	render() {
 		return (
 			<ThemeProvider theme={this.theme}>
-				<div style={{gridArea: "a"}}><Placeholder></Placeholder></div>
+				<div style={{gridArea: "a"}}><ControlsExample topics={this.props.topics}></ControlsExample></div>
 				<div style={{gridArea: "b"}}><Placeholder></Placeholder></div>
 				<div style={{gridArea: "c"}}><Placeholder></Placeholder></div>
 				<div style={{gridArea: "d"}}><Placeholder></Placeholder></div>
