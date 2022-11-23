@@ -15,6 +15,14 @@ const TOPICS_TO_SUBSCRIBE_TO = [
 		name: '/slider2',
 		type: 'std_msgs/Int32'
 	},
+	{
+		name: '/switch1',
+		type: 'std_msgs/Bool'
+	},
+	{
+		name: '/switch2',
+		type: 'std_msgs/Bool'
+	},
 ]
 
 let topics = {}

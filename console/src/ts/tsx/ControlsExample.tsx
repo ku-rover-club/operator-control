@@ -3,6 +3,7 @@ import * as React from 'react'
 
 import { Button } from './Button'
 import { Slider } from './Slider'
+import { Switch } from './Switch'
 
 export interface ControlsExampleProps {
 	topics: any,
@@ -18,26 +19,46 @@ export class ControlsExample extends React.Component<ControlsExampleProps> {
 						topic={this.props.topics['/test']}
 						message="butt pressed"
 					/>
-				</div>
-				<div style={{gridArea: "b"}}>
 					<Button
 						name="Button"
 						topic={this.props.topics['/test']}
 						message="button pressed"
+					/>
+				</div>
+				<div style={{gridArea: "b"}}>
+					<Button
+						name="Button2"
+						topic={this.props.topics['/test']}
+						message="button 2 pressed"
+					/>
+					<Button
+						name="Button3"
+						topic={this.props.topics['/test']}
+						message="button 3 pressed"
 					/>
 				</div>
 				<div style={{gridArea: "c"}}>
 					<Button
-						name="Button"
+						name="Button4"
 						topic={this.props.topics['/test']}
-						message="button pressed"
+						message="button 4 pressed"
+					/>
+					<Button
+						name="Button5"
+						topic={this.props.topics['/test']}
+						message="button 5 pressed"
 					/>
 				</div>
 				<div style={{gridArea: "d"}}>
 					<Button
-						name="Button"
+						name="Button6"
 						topic={this.props.topics['/test']}
-						message="button pressed"
+						message="button 6 pressed"
+					/>
+					<Button
+						name="Button7"
+						topic={this.props.topics['/test']}
+						message="button 7 pressed"
 					/>
 				</div>
 				<div style={{gridArea: "e"}}>
@@ -61,17 +82,15 @@ export class ControlsExample extends React.Component<ControlsExampleProps> {
 					/>
 				</div>
 				<div style={{gridArea: "g"}}>
-					<Button
-						name="Button"
-						topic={this.props.topics['/test']}
-						message="button pressed"
+					<Switch
+						name="uno"
+						topic={this.props.topics['/switch1']}
 					/>
 				</div>
 				<div style={{gridArea: "h"}}>
-					<Button
-						name="Button"
-						topic={this.props.topics['/test']}
-						message="button pressed"
+				<Switch
+						name="dos"
+						topic={this.props.topics['/switch2']}
 					/>
 				</div>
 				<div style={{gridArea: "i"}}>
