@@ -1,5 +1,6 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom/client'
+import 'video.js'
 
 import { App } from './tsx/App'
 import ros from './ros/ros'

@@ -1,5 +1,7 @@
+@import "./camera";
 @import "./colors";
 @import "./controls";
+@import "../../node_modules/video.js/dist/video-js";
 
 html, body {
 	overflow: hidden;
@@ -21,6 +23,10 @@ html, body {
 	padding: 0.5em;
 	position: relative;
 	text-align: center;
+	width: 100%;
+}
+
+.widget-container {
 	width: 100%;
 }
 
