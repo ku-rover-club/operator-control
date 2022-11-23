@@ -2,6 +2,7 @@ import createTheme from '@mui/material/styles/createTheme'
 import { ThemeProvider } from '@mui/material'
 import * as React from 'react'
 
+import { Camera } from './Camera'
 import { ControlsExample } from './ControlsExample'
 import { Placeholder } from './Placeholder'
 
@@ -34,14 +35,30 @@ export class App extends React.Component<AppProps> {
 	render() {
 		return (
 			<ThemeProvider theme={this.theme}>
-				<div style={{gridArea: "a"}}><ControlsExample topics={this.props.topics}></ControlsExample></div>
-				<div style={{gridArea: "b"}}><Placeholder></Placeholder></div>
-				<div style={{gridArea: "c"}}><Placeholder></Placeholder></div>
-				<div style={{gridArea: "d"}}><Placeholder></Placeholder></div>
-				<div style={{gridArea: "e"}}><Placeholder></Placeholder></div>
-				<div style={{gridArea: "f"}}><Placeholder></Placeholder></div>
-				<div style={{gridArea: "g"}}><Placeholder></Placeholder></div>
-				<div style={{gridArea: "h"}}><Placeholder></Placeholder></div>
+				<div className="widget-container" style={{gridArea: "a"}}>
+					<ControlsExample topics={this.props.topics}/>
+				</div>
+				<div className="widget-container" style={{gridArea: "b"}}>
+					<Camera stream="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"/>
+				</div>
+				<div className="widget-container" style={{gridArea: "c"}}>
+					<ControlsExample topics={this.props.topics}/>
+				</div>
+				<div className="widget-container" style={{gridArea: "d"}}>
+					<Placeholder/>
+				</div>
+				<div className="widget-container" style={{gridArea: "e"}}>
+					<Placeholder/>
+				</div>
+				<div className="widget-container" style={{gridArea: "f"}}>
+					<Camera stream="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"/>
+				</div>
+				<div className="widget-container" style={{gridArea: "g"}}>
+					<ControlsExample topics={this.props.topics}/>
+				</div>
+				<div className="widget-container" style={{gridArea: "h"}}>
+					<ControlsExample topics={this.props.topics}/>
+				</div>
 			</ThemeProvider>
 		)
 	}

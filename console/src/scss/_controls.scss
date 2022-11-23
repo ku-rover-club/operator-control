@@ -5,13 +5,12 @@
 	box-sizing: border-box;
 	display: grid;
 	gap: 1em;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
-	grid-template-rows: 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
 	grid-template-areas:
-	"a b c d"
-	"e e f f"
-	"g h i j"
-	"k l m n";
+	"a b b"
+	"c d e"
+	"f f g";
 	height: 100vh;
 	left: 0px;
 	padding: 0.5em;
