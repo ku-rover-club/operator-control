@@ -7,6 +7,7 @@ const OUT_DIRECTORY		= 'out'
 const browserify = require('browserify')
 const del = import('del')
 const { src, dest, series, parallel } = require('gulp')
+const cleanCSS = require('gulp-cleancss')
 const extReplace = require('gulp-ext-replace')
 const replace = require('gulp-replace')
 const sass = require('gulp-sass')(require('sass'))
@@ -56,7 +57,7 @@ const compileTypescript = () =>
 const compileSass = () =>
 	src(`${SOURCE_DIRECTORY}/scss/style.scss`)
     .pipe(sass().on('error', sass.logError))
-    .pipe(dest(OUT_DIRECTORY))
+    .pipe(dest(MID_DIRECTORY))
 
 // Copy HTML
 const copyHtml = () =>
@@ -74,7 +75,12 @@ const minify = () =>
 	.pipe(uglify())
 	.pipe(dest(OUT_DIRECTORY))
 
-const dev = parallel(series(compileTypescript, browserifyTask), compileSass, copyHtml)
+const minifyCSS = () =>
+		src(`${MID_DIRECTORY}/*.css`)
+		.pipe(cleanCSS({compatibility: 'ie8'}))
+		.pipe(dest(OUT_DIRECTORY))
+
+const dev = parallel(series(compileTypescript, browserifyTask), series(compileSass, minifyCSS), copyHtml)
 
 // Exports
 exports.clean = clean
