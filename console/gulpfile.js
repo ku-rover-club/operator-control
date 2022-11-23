@@ -80,10 +80,13 @@ const minifyCSS = () =>
 		.pipe(cleanCSS({compatibility: 'ie8'}))
 		.pipe(dest(OUT_DIRECTORY))
 
-const dev = parallel(series(compileTypescript, browserifyTask), series(compileSass, minifyCSS), copyHtml)
+const css = series(compileSass, minifyCSS)
+
+const dev = parallel(series(compileTypescript, browserifyTask), css, copyHtml)
 
 // Exports
 exports.clean = clean
+exports.css = css
 exports.default = series(dev, minify)
 exports.dev = dev
 exports.docs = docs
