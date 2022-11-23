@@ -45,6 +45,7 @@ export class ControlsExample extends React.Component<ControlsExampleProps> {
 					<Switch
 						name="dos"
 						topic={this.props.topics['/switch2']}
+						defaultChecked
 					/>
 				</div>
 				<div style={{gridArea: "e"}}>

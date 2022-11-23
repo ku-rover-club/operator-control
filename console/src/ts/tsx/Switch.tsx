@@ -4,6 +4,7 @@ import MaterialSwitch from '@mui/material/Switch'
 import { Topic } from 'roslib'
 
 export interface SwitchProps {
+	defaultChecked?: boolean,
 	name: string,
 	topic: Topic,
 }
@@ -32,6 +33,7 @@ export class Switch extends React.Component<SwitchProps> {
 				{this.props.name}
 				<MaterialSwitch
 					onChange={this.change.bind(this)}
+					defaultChecked={this.props.defaultChecked}
 				/>
 			</Card>
 		)

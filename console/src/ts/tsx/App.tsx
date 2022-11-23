@@ -54,7 +54,7 @@ export class App extends React.Component<AppProps> {
 					<Camera stream="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"/>
 				</div>
 				<div className="widget-container" style={{gridArea: "g"}}>
-					<ControlsExample topics={this.props.topics}/>
+					<Placeholder/>
 				</div>
 				<div className="widget-container" style={{gridArea: "h"}}>
 					<ControlsExample topics={this.props.topics}/>
