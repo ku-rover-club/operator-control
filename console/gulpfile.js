@@ -59,6 +59,11 @@ const compileSass = () =>
     .pipe(sass().on('error', sass.logError))
     .pipe(dest(MID_DIRECTORY))
 
+// Move json
+const moveJSON = () =>
+	src(`${SOURCE_DIRECTORY}/ts/**/*.json`)
+	.pipe(dest(MID_DIRECTORY))
+
 // Copy HTML
 const copyHtml = () =>
 	src(`${SOURCE_DIRECTORY}/html/*.html`)
@@ -81,8 +86,9 @@ const minifyCSS = () =>
 		.pipe(dest(OUT_DIRECTORY))
 
 const css = series(compileSass, minifyCSS)
+const ts = series(parallel(compileTypescript, moveJSON), browserifyTask)
 
-const dev = parallel(series(compileTypescript, browserifyTask), css, copyHtml)
+const dev = parallel(ts, css, copyHtml)
 
 // Exports
 exports.clean = clean
