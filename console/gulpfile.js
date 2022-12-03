@@ -42,16 +42,13 @@ const clean = async cb => {
 }
 
 // Compile TypeScript
-const compileTypescript = () =>
-	src(`${SOURCE_DIRECTORY}/ts/**/*.ts*`)
-    .pipe(typescript({
-        module: 'commonjs',
-        jsx: 'react',
-        noEmitOnError: false,
-        skipLibCheck: true
-    }))
+const compileTypescript = () => {
+	const ts = typescript.createProject('tsconfig.json')
+	return src(`${SOURCE_DIRECTORY}/ts/**/*.ts*`)
+    .pipe(ts())
     .pipe(extReplace('.js'))
     .pipe(dest(MID_DIRECTORY))
+}
 
 // Compile SCSS
 const compileSass = () =>
