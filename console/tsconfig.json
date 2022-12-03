@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "jsx": "react",
+        "noEmitOnError": false,
+        "skipLibCheck": true,
+        "resolveJsonModule": true,
+    }
+}

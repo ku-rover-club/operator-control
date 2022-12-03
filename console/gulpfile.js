@@ -44,12 +44,7 @@ const clean = async cb => {
 // Compile TypeScript
 const compileTypescript = () =>
 	src(`${SOURCE_DIRECTORY}/ts/**/*.ts*`)
-    .pipe(typescript({
-        module: 'commonjs',
-        jsx: 'react',
-        noEmitOnError: false,
-        skipLibCheck: true
-    }))
+    .pipe(typescript())
     .pipe(extReplace('.js'))
     .pipe(dest(MID_DIRECTORY))
 
