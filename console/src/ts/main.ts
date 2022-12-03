@@ -7,6 +7,8 @@ import { Controls } from './controls/Controls'
 import ros from './ros/ros'
 import topics from './ros/topics'
 
+const MAIN_LOOP_MIN_FREQ: number = 10 // Hz
+
 const rootElement = document.getElementById('root')
 
 // If the root element can be found
@@ -17,3 +19,14 @@ if(rootElement !== null) {
 
 // Gamepad init
 const controls: Controls = new Controls()
+
+// Main program loop
+const mainLoop = () => {
+
+
+	// Queue up next loop
+	requestIdleCallback(mainLoop, {timeout: 1000 / MAIN_LOOP_MIN_FREQ})
+}
+
+// Run program loop
+requestIdleCallback(mainLoop, {timeout: 1000 / MAIN_LOOP_MIN_FREQ})
