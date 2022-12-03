@@ -1,3 +1,26 @@
 {
-    "A":"ayy"
+	"buttons": [
+		"A",
+		"B",
+		"X",
+		"Y",
+		"LB",
+		"RB",
+		"LT",
+		"RT",
+		"Back",
+		"Start",
+		"LS",
+		"RS",
+		"Up",
+		"Down",
+		"Left",
+		"Right"
+	],
+	"axes": [
+		"LX",
+		"LY",
+		"RX",
+		"RY"
+	]
 }
