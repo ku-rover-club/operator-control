@@ -4,7 +4,7 @@ const MID_DIRECTORY		= 'build'
 const OUT_DIRECTORY		= 'out'
 
 // Imports
-const browserify = require('browserify')
+const _browserify = require('browserify')
 const del = import('del')
 const { src, dest, series, parallel } = require('gulp')
 const cleanCSS = require('gulp-cleancss')
@@ -17,10 +17,10 @@ const typescript = require('gulp-typescript')
 const uglify = require('gulp-uglify')
 
 // Browserify
-const browserifyTask = () =>
+const browserify = () =>
 	src(`${MID_DIRECTORY}/main.js`)
 	.pipe(tap((file) => {
-		file.contents = browserify(file.path, {
+		file.contents = _browserify(file.path, {
 			insertGlobals : true,
 			debug: false,
 			shim: {
@@ -42,7 +42,7 @@ const clean = async cb => {
 }
 
 // Compile TypeScript
-const compileTypescript = () => {
+const compileTS = () => {
 	const ts = typescript.createProject('tsconfig.json')
 	return src(`${SOURCE_DIRECTORY}/ts/**/*.ts*`)
     .pipe(ts())
@@ -72,24 +72,26 @@ const docs = cb => {
 	return cb()
 }
 
-const minify = () =>
+// Minify TypeScript
+const minifyTS = () =>
 	src(`${OUT_DIRECTORY}/main.js`)
 	.pipe(uglify())
 	.pipe(dest(OUT_DIRECTORY))
 
+// Minify CSS
 const minifyCSS = () =>
 		src(`${MID_DIRECTORY}/*.css`)
 		.pipe(cleanCSS({compatibility: 'ie8'}))
 		.pipe(dest(OUT_DIRECTORY))
 
 const css = series(compileSass, minifyCSS)
-const ts = series(parallel(compileTypescript, moveJSON), browserifyTask)
+const ts = series(parallel(compileTS, moveJSON), browserify)
 
 const dev = parallel(ts, css, copyHtml)
 
 // Exports
 exports.clean = clean
 exports.css = css
-exports.default = series(dev, minify)
+exports.default = series(dev, minifyTS)
 exports.dev = dev
 exports.docs = docs
