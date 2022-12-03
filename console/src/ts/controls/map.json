@@ -15,7 +15,8 @@
 		"Up",
 		"Down",
 		"Left",
-		"Right"
+		"Right",
+		"Xbox"
 	],
 	"axes": [
 		"LX",
