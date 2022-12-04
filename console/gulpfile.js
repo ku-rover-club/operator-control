@@ -66,12 +66,6 @@ const copyHtml = () =>
 	src(`${SOURCE_DIRECTORY}/html/*.html`)
 	.pipe(dest(OUT_DIRECTORY))
 
-// Generate TypeScript documentation
-const docs = cb => {
-	shell.task('./node_modules/typedoc/bin/typedoc --out docs/ src/ts/ --jsx react')
-	return cb()
-}
-
 // Minify TypeScript
 const minifyTS = () =>
 	src(`${OUT_DIRECTORY}/main.js`)
@@ -101,4 +95,3 @@ exports.clean = clean
 exports.css = css
 exports.default = series(dev, minifyTS)
 exports.dev = dev
-exports.docs = docs
