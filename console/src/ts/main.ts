@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom/client'
 import 'video.js'
 
 import { App } from './tsx/App'
-import { Controls } from './controls/Controls'
+import { Controls } from './Controls'
 import ros from './ros/ros'
 import topics from './ros/topics'
 
