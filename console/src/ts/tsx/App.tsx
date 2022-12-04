@@ -36,28 +36,22 @@ export class App extends React.Component<AppProps> {
 		return (
 			<ThemeProvider theme={this.theme}>
 				<div className="widget-container" style={{gridArea: "a"}}>
-					<ControlsExample topics={this.props.topics}/>
+					<Camera stream="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"/>
 				</div>
 				<div className="widget-container" style={{gridArea: "b"}}>
-					<Camera stream="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"/>
+					<Placeholder/>
 				</div>
 				<div className="widget-container" style={{gridArea: "c"}}>
 					<ControlsExample topics={this.props.topics}/>
 				</div>
 				<div className="widget-container" style={{gridArea: "d"}}>
-					<Placeholder/>
-				</div>
-				<div className="widget-container" style={{gridArea: "e"}}>
-					<Placeholder/>
-				</div>
-				<div className="widget-container" style={{gridArea: "f"}}>
 					<Camera stream="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"/>
 				</div>
-				<div className="widget-container" style={{gridArea: "g"}}>
-					<Placeholder/>
+				<div className="widget-container" style={{gridArea: "e"}}>
+					<Camera stream="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"/>
 				</div>
-				<div className="widget-container" style={{gridArea: "h"}}>
-					<ControlsExample topics={this.props.topics}/>
+				<div className="widget-container" style={{gridArea: "f"}}>
+					<Placeholder/>
 				</div>
 			</ThemeProvider>
 		)

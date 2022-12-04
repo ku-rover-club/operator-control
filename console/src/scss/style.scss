@@ -1,6 +1,7 @@
 @import "./camera";
 @import "./colors";
 @import "./controls";
+
 @import "../../node_modules/video.js/dist/video-js";
 
 html, body {
@@ -40,9 +41,9 @@ html, body {
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	grid-template-rows: 1fr 1fr 1fr;
 	grid-template-areas:
-	"a b b b c"
-	"d b b b e"
-	"d f g h e";
+	"a a a b b"
+	"a a a b b"
+	"c d e f f";
 	height: 100vh;
 	left: 0px;
 	padding: 0.5em;
