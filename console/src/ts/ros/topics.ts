@@ -23,6 +23,10 @@ const TOPICS_TO_SUBSCRIBE_TO = [
 		name: '/switch2',
 		type: 'std_msgs/Bool'
 	},
+	{
+		name: '/gamepad-updates',
+		type: 'std_msgs/String'
+	}
 ]
 
 let topics = {}
