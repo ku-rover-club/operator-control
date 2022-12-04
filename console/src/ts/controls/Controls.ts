@@ -3,17 +3,11 @@ import map from './map.json'
 const UPDATE_FREQ: number = 10 // Hz
 
 /**
- * Controls class that handles gamepads and function calls
+ * Controls
+ * Controls class that handles gamepads and sending their data to the rover
  */
 export class Controls {
-	functions = {
-		/**
-		 * Test
-		 * Just a good ol' test function that logs a message
-		 */
-		test: () => console.log('test function called')
-	}
-	gamepads: {}
+	gamepads: Gamepad[]
 
     /**
      * Constructor
