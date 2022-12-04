@@ -75,7 +75,14 @@ const docs = cb => {
 // Minify TypeScript
 const minifyTS = () =>
 	src(`${OUT_DIRECTORY}/main.js`)
-	.pipe(uglify())
+	.pipe(uglify({
+		compress:{
+			dead_code: true,
+			drop_console: true,
+			passes: 1,
+			toplevel: true,
+		}
+	}))
 	.pipe(dest(OUT_DIRECTORY))
 
 // Minify CSS
