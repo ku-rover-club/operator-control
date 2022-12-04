@@ -1,3 +1,5 @@
+import { Topic } from 'roslib'
+
 import map from './map.json'
 
 const UPDATE_FREQ: number = 10 // Hz
@@ -7,13 +9,18 @@ const UPDATE_FREQ: number = 10 // Hz
  * Controls class that handles gamepads and sending their data to the rover
  */
 export class Controls {
+	/** The list of gamepads connected */
 	gamepads: Gamepad[]
+	/** The topic being published to */
+	topic: Topic
 
     /**
      * Constructor
      * Hook into call the useful Gamepad callbacks
      */
-    constructor() {
+    constructor(topic: Topic) {
+		this.topic = topic
+
 		// Hook into callbacks
 		window.addEventListener('gamepadconnected', this.gamepadConnected.bind(this))
 		window.addEventListener('gamepaddisconnected', this.gamepadDisconnected.bind(this))
@@ -29,7 +36,7 @@ export class Controls {
 	 * @param e The gamepad event object
 	 */
 	gamepadConnected(e: GamepadEvent): void {
-		console.log("Gamepad connected at index %d: %s. %d buttons, %d axes.", e.gamepad.index, e.gamepad.id, e.gamepad.buttons.length, e.gamepad.axes.length)
+		this.topic.publish(`Connected ${e.gamepad.id} slot ${e.gamepad.index}`)
 	}
 
 	/**
@@ -38,7 +45,7 @@ export class Controls {
 	 * @param e The gamepad event object
 	 */
 	gamepadDisconnected(e: GamepadEvent): void {
-		console.log("Gamepad disconnected from index %d: %s", e.gamepad.index, e.gamepad.id)
+		this.topic.publish(`Disconnected ${e.gamepad.id} slot ${e.gamepad.index}`)
 	}
 
 	/**
@@ -46,7 +53,7 @@ export class Controls {
 	 * Sends an update of all the axis values at UPDATE_FREQ
 	 */
 	updateAxes(): void {
-		console.log('axis update')
+
 	}
 
 	/**
@@ -55,7 +62,7 @@ export class Controls {
 	 * Runs at least as fast as UPDATE_FREQ
 	 */
 	updateButtons(): void {
-		console.log('button update')
+
 
 		// Schedule next run
 		requestIdleCallback(this.updateButtons.bind(this), {timeout: 1000 / UPDATE_FREQ})

@@ -18,7 +18,7 @@ if(rootElement !== null) {
 }
 
 // Gamepad init
-const controls: Controls = new Controls()
+const controls: Controls = new Controls(topics['/gamepad-updates'])
 
 // Main program loop
 const mainLoop = () => {
