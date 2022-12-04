@@ -19,14 +19,3 @@ if(rootElement !== null) {
 
 // Gamepad init
 const controls: Controls = new Controls(topics['/gamepad-updates'])
-
-// Main program loop
-const mainLoop = () => {
-
-
-	// Queue up next loop
-	requestIdleCallback(mainLoop, {timeout: 1000 / MAIN_LOOP_MIN_FREQ})
-}
-
-// Run program loop
-requestIdleCallback(mainLoop, {timeout: 1000 / MAIN_LOOP_MIN_FREQ})
