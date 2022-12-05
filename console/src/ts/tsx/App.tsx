@@ -4,6 +4,7 @@ import * as React from 'react'
 
 import { Camera } from './Camera'
 import { ControlsExample } from './ControlsExample'
+import { Iframe } from './Iframe'
 import { Placeholder } from './Placeholder'
 import { Reader } from './Reader'
 
@@ -40,7 +41,7 @@ export class App extends React.Component<AppProps> {
 					<Camera stream="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"/>
 				</div>
 				<div className="widget-container" style={{gridArea: "b"}}>
-					<Placeholder/>
+					<Iframe src="https://example.com"/>
 				</div>
 				<div className="widget-container" style={{gridArea: "c"}}>
 					<ControlsExample topics={this.props.topics}/>
