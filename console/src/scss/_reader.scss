@@ -1,0 +1,17 @@
+.reader {
+	font-family: monospace !important;
+	font-size: 1.05em !important;
+	overflow-y: scroll !important;
+	text-align: left !important;
+}
+
+.reader > p > br {
+	content: "";
+	margin: 2em;
+	display: block;
+	font-size: 24%;
+}
+
+.reader > p {
+	max-height: 33vh;
+}

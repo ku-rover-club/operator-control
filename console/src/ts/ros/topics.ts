@@ -26,6 +26,10 @@ const TOPICS_TO_SUBSCRIBE_TO = [
 	{
 		name: '/gamepad-updates',
 		type: 'std_msgs/String'
+	},
+	{
+		name: '/log',
+		type: 'std_msgs/String'
 	}
 ]
 

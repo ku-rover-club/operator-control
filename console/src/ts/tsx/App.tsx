@@ -5,6 +5,7 @@ import * as React from 'react'
 import { Camera } from './Camera'
 import { ControlsExample } from './ControlsExample'
 import { Placeholder } from './Placeholder'
+import { Reader } from './Reader'
 
 export interface AppProps {
 	ros: any,
@@ -51,7 +52,7 @@ export class App extends React.Component<AppProps> {
 					<Camera stream="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"/>
 				</div>
 				<div className="widget-container" style={{gridArea: "f"}}>
-					<Placeholder/>
+					<Reader topic={this.props.topics['/log']}/>
 				</div>
 			</ThemeProvider>
 		)
